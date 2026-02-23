@@ -18,5 +18,5 @@ class Memory:
     def get_history(self):
         return self.history
 
-   def clear(self):
+    def clear(self):
         self.history = []
