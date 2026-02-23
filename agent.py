@@ -36,7 +36,7 @@ User question:
 
     else:
         response = get_completion(user_input)
-
-   memory.add_assistant(response)
+    
+    memory.add_assistant(response)
 
     return response
