@@ -1,5 +1,5 @@
 from llm_helper import get_completion
-from tools import search_documents
+from tools import search_docs
 from memory import Memory
 
 memory = Memory()
@@ -22,7 +22,7 @@ Respond with only the action name.
 
     if "call_tool" in decision:
         
-        tool_result = search_documents.invoke(user_input)
+        tool_result = search_docs.invoke(user_input)
         
         final_prompt = f"""
 Use the following tool result to answer the user:
