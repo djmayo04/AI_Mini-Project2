@@ -1,11 +1,8 @@
 from langchain_groq import ChatGroq
-from langchain.schema import HumanMessage
+from langchain_core.messages import HumanMessage
 
-llm = ChatGroq(
-    model="openai/gpt-oss-120b",
-    temperature=0
-)
+llm = ChatGroq(model="openai/gpt-oss-120b")
 
-def get_completion(prompt):
+def get_completion(prompt, temperature=0):
     response = llm.invoke([HumanMessage(content=prompt)])
     return response.content
