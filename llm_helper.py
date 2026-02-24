@@ -11,5 +11,4 @@ def get_completion(prompt, temperature=0):
 
 def chunk_split(text):
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=25)
-    chunks = text_splitter.split_text(text)
-    return chunks
+    return text_splitter.split_documents(documents)
