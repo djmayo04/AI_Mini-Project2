@@ -1,5 +1,5 @@
 from llm_helper import get_completion
-from tools import search_docs
+from tools import search_docs, deadline_lookup, add_memory, show_history, ask_clarification
 from memory import Memory
 
 memory = Memory()
@@ -16,13 +16,19 @@ Your responsibilities:
 - Use available tools when necessary to retrieve official course information. 
 
 Available tools: 
--search_docs: Searches official course documents (assignments, rubric, syllabus, FAQ).
+- search_docs: Searches official course documents (assignments, rubric, syllabus, FAQ).
+- deadline_lookup: Return the official list of course deadlines.
+- show_history: Show the current chat history.
+- add_memory: Store a user preference/fact for later (e.g., "My name is Ana and I can study 2 hours per day.").
+- ask_clarification: Ask the user a clarifying question when the request is ambiguous.
 
-Rules:
-1. If the question asks about course policies, deadlines, grading, assignment instructions, or syllabus content → call the appropriate tool.
-2. If the question asks about general AI concepts (e.g., PEAS, intelligent agents, search algorithms) → answer directly.
-3. If unsure whether the answer exists in course documents → call the tool.
-4. Do NOT guess or fabricate course information.
+Tool selection rules:
+1) If the user asks for a due date / deadline → call_tool + deadline_lookup.
+2) If the user asks to "show history" / "what did I say earlier" → call_tool + show_history.
+3) If the user asks you to remember a preference/fact → call_tool + add_memory.
+4) If the question is about course policies, grading, rubric, assignment instructions, syllabus/FAQ content → call_tool + search_docs.
+5) If the question is unclear/underspecified → call_tool + ask_clarification.
+6) If the question is general AI concept help (PEAS, intelligent agents, search, ML basics) → answer_directly.
 
 User question:
 {user_input}
@@ -33,39 +39,32 @@ Action: <call_tool or answer_directly>
 Tool: <tool_name or none>
 """
 
-    decision = get_completion(decision_prompt)
+    decision = get_completion(decision_prompt),lower()
 
     if "call_tool" in decision:
-        
-        tool_result = search_docs.invoke(user_input)
-        
+
+        if "deadline_lookup" in decision:
+            tool_result = deadline_lookup.invoke("")
+
+        elif "show_history" in decision:
+            tool_result = show_history.invoke("")
+
+        elif "add_memory" in decision:
+            tool_result = add_memory.invoke(user_input)
+
+        elif "ask_clarification" in decision:
+            tool_result = ask_clarification.invoke("")
+
+        else:  # default to search_docs
+            tool_result = search_docs.invoke(user_input)
+            
         final_prompt = f"""
-Use the following tool result to answer the user:
+You are an academic assistant for an AI course.
 
-{tool_result}
+Use ONLY the tool output below to answer the user's question. 
+If the answer is not in the tool output, say you couldn't find it and suggest what to ask/look up.
 
-User question:
-{user_input}
-"""
-        response = get_completion(final_prompt)
-
-    else:
-        response = get_completion(user_input)
-    
-    memory.add_assistant(response)
-
-    return response
-
-
-    decision = get_completion(decision_prompt)
-
-    if "call_tool" in decision:
-        
-        tool_result = search_docs.invoke(user_input)
-        
-        final_prompt = f"""
-Use the following tool result to answer the user:
-
+Tool output:
 {tool_result}
 
 User question:
