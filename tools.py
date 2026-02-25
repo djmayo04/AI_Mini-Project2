@@ -31,10 +31,10 @@ Midterm Exam: March 10
 Final Project Proposal: April 5
 Final Project Demo: April 28
 """
-return deadlines
+    return deadlines
              
 @tool
-def add_memory
+def add_memory(info: str) -> str:
     """Stores user preferences or information for future chats."""
     memory.add_preference(info)
     return f"Stored in memory: {info}"
@@ -45,6 +45,6 @@ def show_history(_: str = ""):
     return memory.get_history()
 
 @tool
-def ask_clarification
+def ask_clarification(_: str = "") -> str:
     """Asks for clarification if unsure how to answer a question."""
     return "Ask the user to further clarify their question."
