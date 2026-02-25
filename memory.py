@@ -19,7 +19,7 @@ class Memory:
     def add_preference(self, info):
         self.preferences.append(info)
 
-    def get_preferences(self)
+    def get_preferences(self):
         return self.preferences
         
     def get_history(self):
