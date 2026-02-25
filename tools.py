@@ -14,3 +14,13 @@ def search_docs(query: str) -> str:
     f"Source: {d.metadata.get('source')}\n{d.page_content}"
     for d in docs
 )
+
+@tool
+def deadline_lookup
+
+@tool
+def add_memory
+
+@tool
+def ask_clarification
+    return "ask for clarification message"
