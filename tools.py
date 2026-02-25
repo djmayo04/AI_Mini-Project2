@@ -36,7 +36,8 @@ return deadlines
 @tool
 def add_memory
     """Stores user preferences or information for future chats."""
-
+    memory.add_preference(info)
+    return f"Stored in memory: {info}"
              
 @tool
 def show_history(_: str = ""):
