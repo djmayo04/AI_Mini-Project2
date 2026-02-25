@@ -46,4 +46,4 @@ def show_history(history: str) -> str:
 @tool
 def ask_clarification
     """Asks for clarification if unsure how to answer a question."""
-    return "ask for clarification message"
+    return "Ask the user to further clarify their question."
