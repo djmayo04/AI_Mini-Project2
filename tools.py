@@ -1,5 +1,11 @@
 from langchain.tools import tool
 
+memory = None
+
+def set_memory(mem):
+    global memory
+    memory = mem
+
 vectorstore = None
 
 def set_vectorstore(vs):
@@ -29,13 +35,15 @@ return deadlines
              
 @tool
 def add_memory
-
+    """Stores user preferences or information for future chats."""
 
              
 @tool
 def show_history(history: str) -> str:
+    """Returns the chat history."""
     return agent.memory.get_history()
 
 @tool
 def ask_clarification
+    """Asks for clarification if unsure how to answer a question."""
     return "ask for clarification message"
