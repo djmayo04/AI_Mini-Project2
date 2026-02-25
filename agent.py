@@ -37,7 +37,7 @@ Respond in the following format ONLY:
 
 Action: <call_tool or answer_directly>
 Tool: <tool_name or none>
-"""
+""".strip()
 
     decision = get_completion(decision_prompt).lower()
 
@@ -69,7 +69,7 @@ Tool output:
 
 User question:
 {user_input}
-"""
+""".strip()
         response = get_completion(final_prompt)
 
     else:
