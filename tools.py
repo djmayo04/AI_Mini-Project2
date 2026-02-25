@@ -24,3 +24,7 @@ def add_memory
 @tool
 def ask_clarification
     return "ask for clarification message"
+
+@tool
+def show_history
+    return 
