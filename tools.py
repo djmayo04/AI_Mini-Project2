@@ -16,10 +16,16 @@ def search_docs(query: str) -> str:
 )
 
 @tool
-def deadline_lookup
-    deadlines = []
-    return 
-
+def deadline_lookup(lookup: str = "") -> str:
+    """Returns a list of assignment deadlines."""
+    deadlines = """
+Assignment 1 due: February 25
+Assignment 2 due: March 20
+Midterm Exam: March 10
+Final Project Proposal: April 5
+Final Project Demo: April 28
+"""
+return deadlines
              
 @tool
 def add_memory
