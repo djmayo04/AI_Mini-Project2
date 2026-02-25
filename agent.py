@@ -39,7 +39,7 @@ Action: <call_tool or answer_directly>
 Tool: <tool_name or none>
 """
 
-    decision = get_completion(decision_prompt),lower()
+    decision = get_completion(decision_prompt).lower()
 
     if "call_tool" in decision:
 
