@@ -17,14 +17,19 @@ def search_docs(query: str) -> str:
 
 @tool
 def deadline_lookup
+    deadlines = []
+    return 
 
+             
 @tool
 def add_memory
+
+
+             
+@tool
+def show_history(history: str) -> str:
+    return agent.memory.get_history()
 
 @tool
 def ask_clarification
     return "ask for clarification message"
-
-@tool
-def show_history
-    return 
