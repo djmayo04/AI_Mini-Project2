@@ -7,15 +7,6 @@ memory = Memory()
 def run_agent(user_input: str):
     memory.add_user(user_input)
 
-   from llm_helper import get_completion
-from tools import search_docs
-from memory import Memory
-
-memory = Memory()
-
-def run_agent(user_input: str):
-    memory.add_user(user_input)
-
     decision_prompt = f"""
 You are an academic assistant for a university-level Artificial Intelligence course.
 
