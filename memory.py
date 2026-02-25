@@ -16,7 +16,7 @@ class Memory:
             "content": text
         })
 
-    def add_preferences(self, info):
+    def add_preference(self, info):
         self.preferences.append(info)
 
     def get_preferences(self)
