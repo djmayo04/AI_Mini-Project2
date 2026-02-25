@@ -22,7 +22,7 @@ def search_docs(query: str) -> str:
 )
 
 @tool
-def deadline_lookup(lookup: str = "") -> str:
+def deadline_lookup(_: str = "") -> str:
     """Returns a list of assignment deadlines."""
     deadlines = """
 Assignment 1 due: February 25
@@ -39,9 +39,9 @@ def add_memory
 
              
 @tool
-def show_history(history: str) -> str:
+def show_history(_: str = ""):
     """Returns the chat history."""
-    return agent.memory.get_history()
+    return memory.get_history()
 
 @tool
 def ask_clarification
