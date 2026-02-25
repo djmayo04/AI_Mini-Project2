@@ -30,9 +30,9 @@ Tool selection rules:
 5) If the question is unclear/underspecified → call_tool + ask_clarification.
 6) If the question is general AI concept help (PEAS, intelligent agents, search, ML basics) → answer_directly.
 
-User question:
+User question: ###
 {user_input}
-
+###
 Respond in the following format ONLY:
 
 Action: <call_tool or answer_directly>
