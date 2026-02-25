@@ -23,12 +23,12 @@ Available tools:
 - ask_clarification: Ask the user a clarifying question when the request is ambiguous.
 
 Tool selection rules:
-1) If the user asks for a due date / deadline → call_tool + deadline_lookup.
-2) If the user asks to "show history" / "what did I say earlier" → call_tool + show_history.
-3) If the user asks you to remember a preference/fact → call_tool + add_memory.
-4) If the question is about course policies, grading, rubric, assignment instructions, syllabus/FAQ content → call_tool + search_docs.
-5) If the question is unclear/underspecified → call_tool + ask_clarification.
-6) If the question is general AI concept help (PEAS, intelligent agents, search, ML basics) → answer_directly.
+1) If the user asks for a due date / deadline use  deadline_lookup.
+2) If the user asks to "show history" / "what did I say earlier" use show_history.
+3) If the user asks you to remember a preference/fact use add_memory.
+4) If the question is about course policies, grading, rubric, assignment instructions, syllabus/FAQ content use search_docs.
+5) If the question is unclear/underspecified use ask_clarification.
+6) If the question is general AI concept help (PEAS, intelligent agents, search, ML basics) then answer_directly.
 
 User question: ###
 {user_input}
