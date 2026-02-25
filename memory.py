@@ -2,6 +2,7 @@ class Memory:
 
     def __init__(self):
         self.history = []
+        self.preferences = []
 
     def add_user(self, text):
         self.history.append({
@@ -26,3 +27,4 @@ class Memory:
 
     def clear(self):
         self.history = []
+        self.preferences = []
