@@ -9,7 +9,7 @@ def set_vectorstore(vs):
 @tool
 def search_docs(query: str) -> str:
     """Searches the vectorstore for documents similar to the query."""
-    docs = vectorstore.similary_search(query, k=4)
+    docs = vectorstore.similarity_search(query, k=4)
     return "\n\n".join(
     f"Source: {d.metadata.get('source')}\n{d.page_content}"
     for d in docs
