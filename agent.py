@@ -87,7 +87,16 @@ User question:
         response = get_completion(final_prompt)
 
     else:
-        response = get_completion(user_input)
+        direct_prompt = f"""
+You are an academic assistant for a university-level Artificial Intelligence course.
+
+Stored user preferences/facts (use these when relevant):
+{prefs_text}
+
+User question:
+{user_input}
+"""
+        response = get_completion(direct_prompt)
     
     memory.add_assistant(response)
 
