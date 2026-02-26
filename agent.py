@@ -95,7 +95,7 @@ Stored user preferences/facts (use these when relevant):
 
 User question:
 {user_input}
-""".(strip)
+""".strip()
         response = get_completion(direct_prompt)
     
     memory.add_assistant(response)
