@@ -5,18 +5,18 @@ from memory import Memory
 memory = Memory()
 set_memory(memory)
 
-def run_agent(user_input: str):
-    memory.add_user(user_input)
-
 def format_preferences(memory) -> str:
     prefs = memory.get_preferences()
     if not prefs:
         return "(none)"
     return "\n".join(f"- {p}" for p in prefs)
-
-prefs_text = format_preferences(memory)
     
-decision_prompt = f"""
+def run_agent(user_input: str):
+    memory.add_user(user_input)
+
+    prefs_text = format_preferences(memory)
+    
+    decision_prompt = f"""
 You are an academic assistant for a university-level Artificial Intelligence course.
 
 Stored user preferences/facts (use these when relevant): {prefs_text}
@@ -95,7 +95,7 @@ Stored user preferences/facts (use these when relevant):
 
 User question:
 {user_input}
-"""
+""".(strip)
         response = get_completion(direct_prompt)
     
     memory.add_assistant(response)
