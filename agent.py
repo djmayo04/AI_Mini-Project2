@@ -37,7 +37,7 @@ Tool selection rules:
 1) If the user asks for a due date / deadline use  deadline_lookup.
 2) If the user asks to "show history" / "what did I say earlier" use show_history.
 3) If the user asks you to remember a preference/fact use add_memory.
-4) If the question is about course policies, grading, rubric, assignment instructions, syllabus/FAQ content use search_docs.
+4) If the question is about course policies, grading, rubric, assignment instructions, syllabus/FAQ content (e.g late policy or participation credit) use search_docs.
 5) If the question is unclear/underspecified use ask_clarification.
 6) If the question is general AI concept help (PEAS, intelligent agents, search, ML basics) then answer_directly.
 
