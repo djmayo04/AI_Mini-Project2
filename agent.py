@@ -3,6 +3,7 @@ from tools import search_docs, deadline_lookup, add_memory, show_history, ask_cl
 from memory import Memory
 
 memory = Memory()
+set_memory(memory)
 
 def run_agent(user_input: str):
     memory.add_user(user_input)
