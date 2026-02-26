@@ -1,5 +1,5 @@
 from llm_helper import get_completion
-from tools import search_docs, deadline_lookup, add_memory, show_history, ask_clarification
+from tools import search_docs, deadline_lookup, add_memory, show_history, ask_clarification, set_memory
 from memory import Memory
 
 memory = Memory()
