@@ -16,7 +16,7 @@ def format_preferences(memory) -> str:
 
 prefs_text = format_preferences(memory)
     
-    decision_prompt = f"""
+decision_prompt = f"""
 You are an academic assistant for a university-level Artificial Intelligence course.
 
 Stored user preferences/facts (use these when relevant): {prefs_text}
