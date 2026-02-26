@@ -72,6 +72,9 @@ Tool: <tool_name or none>
         final_prompt = f"""
 You are an academic assistant for an AI course.
 
+Stored user preferences/facts (use these when relevant):
+{prefs_text}
+
 Use ONLY the tool output below to answer the user's question. 
 If the answer is not in the tool output, say you couldn't find it and suggest what to ask/look up.
 
